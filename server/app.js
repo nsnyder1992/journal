@@ -15,6 +15,13 @@ sequelize.sync();
 //headers
 app.use(require("./middleware/headers"));
 
+//options
+app.options("*", (req, res) => {
+  res.json({
+    status: "OK",
+  });
+});
+
 app.use(express.json());
 
 ////////////////////////////////////////////////
